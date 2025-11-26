@@ -31,7 +31,7 @@ button {
     padding: 10px;
     border: none;
     border-radius: 10px;
-    background: #b7f7b3;
+    background: #ddffdb;
     cursor: pointer;
     font-weight: bold;
 }
@@ -77,7 +77,7 @@ button {
 
 /* Hover Effect */
 .tab-btn:hover {
-    background: #b7f7b3; /* pastel green on hover */
+    background: #ffb7d5; /* pastel green on hover */
     color: #fff;
     transform: translateY(-2px);
 }
@@ -201,7 +201,7 @@ button {
 
 /* Close button */
 #closeGalleryBtn {
-    background: #4caf91; /* pastel green */
+    background: #ffb7d5; /* pastel green */
     color: white;
     border: none;
     border-radius: 12px;
@@ -220,6 +220,22 @@ button {
 
 
 
+.minimal-btn {
+  padding: 10px 20px;
+  border: 2px solid #ffb7d5;  /* soft pink border */
+  border-radius: 12px;
+  background: #ffffff;          /* white background for minimal look */
+  color: #ff6fa5;               /* pink pastel text */
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.minimal-btn:hover {
+  background: #ffb7d5;          /* subtle pink fill on hover */
+  color: #ffffff;                /* text turns white */
+  transform: translateY(-2px);   /* slight lift effect */
+}
 
 
 
@@ -489,7 +505,7 @@ button {
   padding: 10px 25px;
   border: none;
   border-radius: 15px;
-  background: #b7f7b3; /* pastel green */
+  background: #ffb7d5; /* pastel green */
   color: #ff6f91;      /* pastel pink text */
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
@@ -559,7 +575,7 @@ button {
   padding: 10px 25px;
   border: none;
   border-radius: 15px;
-  background: #b7f7b3; /* pastel green */
+  background: #deffdc; /* pastel green */
   color: #ff6f91;      /* pastel pink text */
   font-weight: 600;
   cursor: pointer;
@@ -567,7 +583,7 @@ button {
 }
 
 #closeLoveNoteBtn:hover {
-  background: #a0e6a0;
+  background: #ffb7d5;
   transform: scale(1.05);
 }
 
@@ -649,9 +665,15 @@ button {
 }
 
 #loveNoteOverlay .overlay-content {
+  max-height: 80vh; /* Makes it scrollable if content is too tall */
   max-width: 600px;
+  width: 90%;        /* Responsive width */
   padding: 25px;
   border-radius: 15px;
+  overflow-y: auto;  /* Enables vertical scroll */
+  background: #fff;  /* Ensure background visible */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  scroll-behavior: smooth;
 }
 
 .love-note-text p {
