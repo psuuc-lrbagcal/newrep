@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Birthday Website</title>
+
+<!-- External CSS -->
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div id="passwordPage" class="center">
+  <div class="card">
+
+    <!-- 🌸 Cute GIF Added Here -->
+    <img src="images/cute.gif" alt="cute gif" class="login-gif">
+
+    <h3 class="login-title">Hey baby, happy brithday! <br> 
+      <h2 class="login-titles">Here's a little something I made for uu!</h2>
+
+    <input type="password" id="passwordInput" placeholder="But what's the magic word?" />
+    <button onclick="checkPassword()" class="login-btn">See my surprise</button>
+
+    <div id="errorCard" class="error-card">Wrong password, babe 🙈</div>
+  </div>
+</div>
+
+<div id="popupError" class="popup-error">Wrong password, babe 🙈</div>
+
+<!-- Congratulations GIF overlay card -->
+<div id="successGifCard" class="success-gif-card">
+  <div class="gif-card-content">
+    <img src="images/congrats.gif" alt="Congrats!" />
+    <h3>Yay! You got it, Babe! 🎉</h3>
+    <p class="note">Note that this is strictly for your eyes only!</p>
+    <button id="startExploringBtn">Continue</button>
+  </div>
+</div>
+
+<!-- Love Note Overlay Card -->
+<div id="loveNoteOverlay" class="overlay-card">
+  <div class="overlay-content">
+
+    <div class="love-note-text">
+      <p>
+        Happiest birthday, my baby!!!  
+        Alam mo na why di kita masyadong narereplyan kanina hahsha. I was clutching this website so I could send it to you exactly at 12 (sana). I want to show you even in a simple way how much I appreciate you.
+      </p>
+
+      <p>
+        Thank you for everything, babe.  
+        For your sweet gestures, for always making time, for your patience, and for the way you treat me with so much respect. Thank you also for the little things—the rides, the food, and the moments we're together. I appreciate you more than you know and I’m truly grateful to have someone like you in my life.
+      </p>
+
+      <p>
+        Whenever I’m with you, life feels lighter and easier. You make the world feel more bearable. You make me so happy. Your words bring me comfort, and I feel like you are the reassurance I’ve always needed.
+      </p>
+
+      <p>
+        Thank you for being my safe space, babe—the person I can rely on for anything. The person I can tell the most nonsense things about my day, the one I can ask the most stupid questions I have in mind, and the one who listens anyway.
+      </p>
+
+      <p>
+        Walang ibang salita kung hindi pasasalamat.  
+        Thank you for existing. Always remember that as long as we’re together, I will celebrate you today and every day. I am grateful, and will always be for the way you love and care for me. And please don’t ever change the incredible soul that you are.
+      </p>
+      <center>
+        <p> Happy birthday, Amante!</p>
+      </center>
+    </div>
+
+    <button id="closeLoveNoteBtn">Close</button>
+  </div>
+</div>
+
+
+
+<div id="home">
+  <div class="carousel">
+  <div class="carousel-track">
+    <img src="images/anac.jpg" alt="Slide 1">
+    <img src="images/coj.jpg" alt="Slide 2">
+    <img src="images/sl0.jpg" alt="Slide 3">
+    <img src="images/place.jpeg">
+    <img src="images/sunsetc.jpeg">
+    <img src="images/places.jpg">
+    <img src="images/placess.jpg">
+  </div>
+</div>
+<div class="login-title">
+  <center>
+  <h3>Happy 24th Birthday, Babe!</h3></center>
+</div>
+  <div class="tabs">
+    <button class="tab-btn" onclick="openTab('tab1')">Love Note</button>
+    <button class="tab-btn" onclick="openTab('tab2')">Playlist</button>
+    <button class="tab-btn" onclick="openTab('tab3')">Gallery</button>
+  </div>
+
+  <div id="tab1" class="tab-content">
+    <p>Something I want to say...</p>
+    <button onclick="showLetter()">Open letter</button>
+    <p id="letter" style="display:none; margin-top:15px;"></p>
+  </div>
+
+ <div id="tab2" class="tab-content">
+  <h3 class="tab-title">🎵 Songs that remind me of you</h3>
+ <br>
+  <div id="current-song" class="current-song">Select a song to play</div>
+
+  <div id="progress-container" class="progress-container">
+    <div id="progress" class="progress"></div>
+  </div>
+
+  <div id="time-display" class="time-display">
+    <span id="current-time">0:00</span>
+    <span id="duration">0:00</span>
+  </div>
+
+  <audio id="audio" preload="auto"></audio>
+  <div id="player-controls" class="player-controls">
+    <button id="backwardBtn" title="Rewind 10s">&#9664;&#9664;</button>
+    <button id="prevBtn" title="Previous">&#9198;</button>
+    <button id="playPauseBtn" title="Play/Pause">&#9658;</button>
+    <button id="nextBtn" title="Next">&#9197;</button>
+    <button id="forwardBtn" title="Fast Forward 10s">&#9654;&#9654;</button>
+  </div>
+  <ul id="playlist" class="playlist-list">
+    <!-- Playlist items added dynamically by JS -->
+  </ul>
+
+
+</div>
+
+
+  <div id="tab3" class="tab-content">
+    <br>
+    <center>
+    <h3 class="tab-title">📸 Some of our moments together</h3></center>
+    <br>
+  <div class="gallery">
+    <div class="gallery-item" data-caption="to more new cafes to try with u!">
+      <img src="images/1.jpg" />
+    </div>
+    <div class="gallery-item" data-caption="mirror pic na para bang mhie at dhie ang tawagan lmao">
+      <img src="images/nj.jpg" />
+    </div>
+    <div class="gallery-item" data-caption="first make out?🤪">
+      <img src="images/3.jpg" />
+    </div>
+    <div class="gallery-item" data-caption="got to try kaleskes for the first time bc of u!! 🫶">
+      <img src="images/l.jpg" />
+    </div>
+    
+    <div class="gallery-item" data-caption="ldr ng 3 days???">
+      <img src="images/ds.jpg" />
+    </div>
+    <div class="gallery-item" data-caption="🦴r">
+      <img src="images/k.jpeg" />
+    </div>
+    <div class="gallery-item" data-caption="jajsja love how u always find a way for us to sit w each other">
+      <img src="images/p.jpeg" />
+    </div>
+    <div class="gallery-item" data-caption="i enjoyed whatever tf we did here">
+      <img src="images/x.jpeg" />
+    </div>
+    <div class="gallery-item" data-caption="posted this on my dump acc😛 jaja (close friend lang tho)">
+      <img src="images/op.jpeg" />
+    </div>
+    <div class="gallery-item" data-caption='tyL di tayo sumemplang'>
+      <img src="images/111.jpg" />
+    </div>
+    <div class="gallery-item" data-caption="Tokyo Athena">
+      <img src="images/rrrrr.jpg" />
+    </div>
+    <div class="gallery-item" data-caption="hbd mbtc">
+      <img src="images/12.jpeg" />
+    </div>
+    <div class="gallery-item" data-caption="nice cardio, will def do it again">
+      <img src="images/6.jpeg" />
+    </div>
+    <div class="gallery-item" data-caption="ldr pala ha, oh ito hickeys">
+      <img src="images/4.jpg" />
+    </div>
+    <div class="gallery-item" data-caption="I still hate yeww and prolly always will">
+      <img src="images/fd.jpg" />
+    </div>
+    
+    <div class="gallery-item" data-caption="Mahal mahalan">
+      <img src="images/5.jpg" />
+    </div>
+    <div class="gallery-item" data-caption="and to more golden hour moments w uuuuu!!">
+      <img src="images/7.jpeg" />
+    </div>
+    <div class="gallery-item" data-caption="youre so pogi here babe">
+      <img src="images/15.jpg" />
+    </div>
+    
+    <div class="gallery-item" data-caption="heart na 1 sided">
+      <img src="images/17.jpeg" />
+    </div>
+    <div class="gallery-item" data-caption="u dont know how happy my heart was on this dayyy">
+      <img src="images/20.jpg" />
+    </div>
+    <div class="gallery-item" data-caption="eh sinoft launch w this picture??">
+      <img src="images/as.jpg" />
+    </div>
+    <div class="gallery-item" data-caption="wasnt able to kiss u here kasi hiya aq sa mga tao🥹🥹">
+      <img src="images/13.jpg" />
+    </div>
+    
+    <div class="gallery-item" data-caption="i remember super laugh ako sayo dito hahahaha">
+      <img src="images/16.jpg" />
+    </div>
+    <div class="gallery-item" data-caption="we'll do this w them soon, ryt ryt??">
+      <img src="images/rrrr.jpg" />
+    </div>
+    <div class="gallery-item" data-caption="silhouette daw eh">
+      <img src="images/18.jpg" />
+    </div>
+
+    <div class="gallery-item" data-caption="parang pigang piga na rin ako mag-isip ng caption for each photo HAHAHA">
+      <img src="images/19.jpg" />
+    </div>
+    
+    
+
+  </div>
+</div>
+
+<!-- Gallery Overlay Card -->
+<div id="galleryOverlay" class="overlay-card">
+  <div class="overlay-content">
+    <p id="galleryCaption"></p>
+    <button id="closeGalleryBtn">Close</button>
+  </div>
+</div>
+
+</div>
+
+<!-- External JS -->
+<script src="script.js"></script>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <p>Made with 💖 and 🌸 just for my, Amante Soriano! | © 2025 Lilidear</p>
+</footer>
+
+</body>
+</html>

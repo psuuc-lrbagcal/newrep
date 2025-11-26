@@ -1,0 +1,661 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fceef6;
+    margin: 0;
+    padding: 0;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 400px;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #ffb7d5;
+    outline: none;
+}
+button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #b7f7b3;
+    cursor: pointer;
+    font-weight: bold;
+}
+.error-card {
+    margin-top: 10px;
+    background: #ffe0e6;
+    padding: 10px;
+    border-radius: 10px;
+    color: #ff4b6e;
+    display: none;
+}
+#home {
+    display: none;
+    padding: 20px;
+}
+.note{
+    color: #b4b4b4;
+}
+
+
+
+/* Tabs Container */
+.tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    justify-content: center;
+}
+
+/* Tab Buttons */
+.tab-btn {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 15px;
+    background: #ffd6e8; /* pastel pink */
+    color: #333;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 10px rgba(255, 111, 145, 0.2);
+}
+
+/* Hover Effect */
+.tab-btn:hover {
+    background: #b7f7b3; /* pastel green on hover */
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Active Tab */
+.tab-btn.active {
+    background: #ffb7d5; /* slightly darker pastel pink */
+    color: #fff;
+    box-shadow: 0 6px 15px rgba(255, 111, 145, 0.3);
+}
+
+/* Tab Content */
+.tab-content {
+    display: none; /* hidden by default */
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: opacity 0.4s ease, transform 0.3s ease;
+}
+
+/* Smooth Fade-in for Active Tab */
+.tab-content.show {
+    display: block;
+    opacity: 0;
+    transform: translateY(5px);
+    animation: fadeIn 0.4s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+/* Gallery grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* bigger images */
+    gap: 20px;
+    padding: 15px;
+}
+
+/* Gallery item */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(183, 255, 224, 0.25);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 16px;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(111, 255, 233, 0.25); 
+}
+
+.gallery-item:hover {
+    transform: translateY(-3px);
+}
+
+.overlay-card {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(76, 175, 145, 0.2);
+    backdrop-filter: blur(6px);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.overlay-card.show {
+    display: flex;
+}
+
+.overlay-content {
+    background: #ffe0f0; /* pastel pink card */
+    padding: 25px 30px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 25px rgba(255, 111, 145, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.overlay-content p {
+    font-size: 16px;
+    color: #4caf91; /* pastel green text */
+    margin-bottom: 20px;
+}
+
+/* Close button */
+#closeGalleryBtn {
+    background: #4caf91; /* pastel green */
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#closeGalleryBtn:hover {
+    background: #3a9d7c;
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+
+/* General tab styling */
+#tab2 {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  padding: 20px;
+}
+
+#tab3 .tab-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #ff8db8; /* pastel pink */
+}
+/* Tab Title */
+#tab2 .tab-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #ff8db8; /* pastel pink */
+}
+
+/* Current song display */
+#tab2 #current-song {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #4caf91; /* pastel green */
+}
+
+/* Progress bar container */
+#tab2 #progress-container {
+  width: 90%;
+  height: 6px;
+  margin: 10px auto;
+  background: #e0f7f1; /* pastel green light background */
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+/* Progress bar itself */
+#tab2 #progress {
+  background: #ffb7d5; /* pastel pink */
+  height: 100%;
+  width: 0%;
+  border-radius: 3px;
+  transition: width 0.1s linear;
+}
+
+/* Time display */
+#tab2 #time-display {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #999;
+  margin-top: 4px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  user-select: none;
+}
+
+/* Player controls */
+#tab2 #player-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+#tab2 #player-controls button {
+  background: #e0f7f1; /* pastel green */
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #ff8db8; /* pastel pink icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+#tab2 #player-controls button:hover {
+  background: #ffb7d5; /* pastel pink */
+  color: #4caf91; /* pastel green icon */
+  transform: scale(1.1);
+}
+
+/* Playlist styling */
+#tab2 #playlist {
+  list-style: none;
+  padding: 0;
+  margin: 25px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Playlist items */
+#tab2 #playlist li {
+  padding: 12px 20px;
+  background: #fce4ec; /* very light pastel pink */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(255, 111, 145, 0.2);
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+#tab2 #playlist li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(255, 111, 145, 0.25);
+  background: #ffe0f0; /* pastel pink hover */
+  color: #4caf91; /* pastel green text on hover */
+}
+
+/* Highlight current playing song */
+#tab2 #playlist li.active {
+  background: #ffd6e0; /* pastel pink highlight */
+  color: #4caf91; /* pastel green text */
+  box-shadow: 0 6px 16px rgba(255, 111, 145, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Optional: slight animation for active song */
+#tab2 #playlist li.active::after {
+  content: "🎵"; /* music note icon */
+  margin-left: 10px;
+  font-size: 14px;
+  color: #ff8db8;
+}
+
+
+
+
+
+
+
+/* 🌸 GIF styling */
+.login-gif {
+  width: 300px;
+  display: block;
+  margin: 0 auto 15px auto;
+  border-radius: 15px;
+}
+
+/* 🌸 New font + aesthetic pastel colors */
+.login-title {
+  font-family: 'Poppins', sans-serif;
+  color: #ff6f91; /* pastel pink */
+  font-weight: 700;
+  font-size: 20px;
+}
+.login-titles {
+  font-family: 'Poppins', sans-serif;
+  color: #ff6f91; /* pastel pink */
+  font-weight: 700;
+  font-size: 17px;
+}
+
+/* 🌸 Input field pastel text color */
+#passwordInput {
+  font-family: 'Poppins', sans-serif;
+  color: #ff6f91;
+}
+
+/* 🌸 Button aesthetic pastel green + text color */
+.login-btn {
+  background: #b5e8c3 !important; /* pastel green */
+  color: #ff6f91 !important;       /* pastel pink text */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* Error card text color update */
+.error-card {
+  color: #ff4273 !important;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* 🌸 Center pop-up error */
+.popup-error {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffe0ea;
+  padding: 20px 30px;
+  border-radius: 20px;
+  color: #ff4b6e;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Overlay card */
+.success-gif-card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8); /* semi-transparent overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none; /* prevent click while hidden */
+  transition: opacity 0.5s ease;
+  z-index: 9999;
+}
+
+/* Card content */
+.gif-card-content {
+  background: #fff0f4;
+  padding: 30px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transform: scale(0.8);
+  transition: transform 0.5s ease;
+}
+
+.success-gif-card.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.success-gif-card.show .gif-card-content {
+  transform: scale(1);
+}
+
+.gif-card-content img {
+  width: 200px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.gif-card-content h3 {
+  font-family: 'Poppins', sans-serif;
+  color: #ff6f91;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Success Card Button */
+#startExploringBtn {
+  margin-top: 20px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 15px;
+  background: #b7f7b3; /* pastel green */
+  color: #ff6f91;      /* pastel pink text */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+#startExploringBtn:hover {
+  background: #a0e6a0;
+  transform: scale(1.05);
+}
+
+
+/* Carousel container */
+.carousel {
+  width: 100%;
+  max-width: 900px;     /* limits width */
+  height: 350px;        /* fixed height for neat look */
+  overflow: hidden;
+  border-radius: 15px;
+  margin: 0 auto 20px auto; /* centered with bottom margin */
+  border: 2px solid #ffd6e8;
+  background: #fff0f4;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Track moving horizontally */
+.carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Individual slides */
+.carousel-track img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* crop to fill nicely */
+  min-width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+/* Hover effect */
+.carousel-track img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .carousel {
+    height: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel {
+    height: 150px;
+  }
+}
+
+/* Close button */
+#closeLoveNoteBtn {
+  margin-top: 20px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 15px;
+  background: #b7f7b3; /* pastel green */
+  color: #ff6f91;      /* pastel pink text */
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+#closeLoveNoteBtn:hover {
+  background: #a0e6a0;
+  transform: scale(1.05);
+}
+
+
+
+
+
+/* Overlay card for Love Note */
+.overlay-card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none; /* hidden initially */
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  transition: opacity 10s ease;
+}
+
+.overlay-card.show {
+  display: flex;
+  opacity: 1;
+}
+
+.overlay-content {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+/* Shake animation on hover */
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.gallery-item:hover img {
+  animation: shake 3s;
+}
+
+.tab-content {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: none; /* hide by default */
+}
+
+.tab-content.show {
+  display: block; /* make visible */
+  opacity: 1;     /* fade in */
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 20px 10px;
+  background: linear-gradient(90deg, #ffd6e8, #d6ffe4); /* pastel pink & green */
+  color: #333;
+  font-size: 14px;
+  border-top: 1px solid #ffc0cb;
+  margin-top: 40px;
+}
+
+#loveNoteOverlay .overlay-content {
+  max-width: 600px;
+  padding: 25px;
+  border-radius: 15px;
+}
+
+.love-note-text p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  text-align: left;
+}
