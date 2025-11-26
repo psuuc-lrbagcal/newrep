@@ -2,17 +2,15 @@ function checkPassword() {
   const input = document.getElementById('passwordInput').value.toLowerCase();
 
   if (input === 'babe') {
-    // Show GIF overlay card
     const gifCard = document.getElementById('successGifCard');
     gifCard.classList.add('show');
 
-    // Add event listener to the "Start Exploring" button
     const startBtn = document.getElementById('startExploringBtn');
     startBtn.addEventListener('click', () => {
       gifCard.classList.remove('show');
       document.getElementById('passwordPage').style.display = 'none';
       document.getElementById('home').style.display = 'block';
-    }, { once: true }); // ensures click runs only once
+    }, { once: true }); 
 
   } else {
     showPopupError();
@@ -207,8 +205,6 @@ function init() {
 
 document.addEventListener('DOMContentLoaded', init);
 
-
-// Simple carousel auto-slide for all carousels
 function initCarousels() {
   const carousels = document.querySelectorAll('.carousel');
 
@@ -220,27 +216,23 @@ function initCarousels() {
     setInterval(() => {
       index = (index + 1) % slides.length;
       track.style.transform = `translateX(-${index * 100}%)`;
-    }, 3000); // slides every 3 seconds
+    }, 3000); 
   });
 }
 
 document.addEventListener('DOMContentLoaded', initCarousels);
 
-
-// Show Love Note overlay
 function showLetter() {
   const overlay = document.getElementById('loveNoteOverlay');
   overlay.classList.add('show');
 }
 
-// Close Love Note overlay
 document.getElementById('closeLoveNoteBtn').addEventListener('click', () => {
   const overlay = document.getElementById('loveNoteOverlay');
   overlay.classList.remove('show');
 });
 
 
-// Gallery overlay functionality
 const galleryItems = document.querySelectorAll('.gallery-item');
 const galleryOverlay = document.getElementById('galleryOverlay');
 const galleryCaption = document.getElementById('galleryCaption');
@@ -254,12 +246,10 @@ galleryItems.forEach(item => {
   });
 });
 
-// Close overlay
 closeGalleryBtn.addEventListener('click', () => {
   galleryOverlay.classList.remove('show');
 });
 
-// Optional: close overlay when clicking outside the content
 galleryOverlay.addEventListener('click', (e) => {
   if (e.target === galleryOverlay) {
     galleryOverlay.classList.remove('show');
@@ -272,19 +262,19 @@ function openTab(tabId) {
 
   tabs.forEach(tab => {
     if (tab.id === tabId) {
-      tab.style.display = 'block';  // show immediately
+      tab.style.display = 'block'; 
       setTimeout(() => {
-        tab.classList.add('show');  // fade in
-      }, 10); // slight delay to allow transition
+        tab.classList.add('show');  
+      }, 10); 
     } else {
-      tab.classList.remove('show'); // fade out
+      tab.classList.remove('show'); 
       setTimeout(() => {
-        tab.style.display = 'none'; // hide after transition
-      }, 400); // match CSS transition duration
+        tab.style.display = 'none'; 
+      }, 400);
     }
   });
 
-  // Optional: audio handling for tab2
+  
   if (tabId === 'tab2') {
     const audioElements = document.querySelectorAll('#tab2 audio');
     audioElements.forEach(audio => {
