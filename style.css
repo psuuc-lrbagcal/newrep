@@ -37,6 +37,7 @@ button {
     font-weight: bold;
 }
 
+
 .error-card {
     margin-top: 10px;
     background: #ffe0e6;
@@ -352,7 +353,25 @@ button {
   color: #ff8db8;
 }
 
+.password-container {
+    position: relative;
+    width: 100%;
+}
 
+.password-container input {
+    width: 100%;
+    padding-right: 40px; /* space for the eye button */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+}
 
 .login-gif {
   width: 300px;

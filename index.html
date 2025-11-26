@@ -15,13 +15,17 @@
 
     <img src="images/cute.gif" alt="cute gif" class="login-gif">
 
-    <h3 class="login-title">Hey baby, happy brithday! <br> 
+    <h3 class="login-title">Hey baby, happy birthday! <br> 
       <h2 class="login-titles">Here's a little something I made for uu!</h2>
 
-    <input type="password" id="passwordInput" placeholder="But what's the magic word?" />
+    <div class="password-container">
+      <input type="password" id="passwordInput" placeholder="But what's the magic word?" />
+      <span class="toggle-password" onclick="togglePassword()">👁️</span>
+    </div>
+
     <button onclick="checkPassword()" class="login-btn">See my surprise</button>
 
-    <div id="errorCard" class="error-card">Wrong password, babe 🙈</div>
+    <div id="errorCard" class="error-card" style="display:none;">Wrong password, babe 🙈</div>
   </div>
 </div>
 

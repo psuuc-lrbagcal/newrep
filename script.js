@@ -34,6 +34,26 @@ function showPopupError() {
   }, 3000);
 }
 
+ function togglePassword() {
+    const passwordInput = document.getElementById("passwordInput");
+    if(passwordInput.type === "password") {
+        passwordInput.type = "text";
+    } else {
+        passwordInput.type = "password";
+    }
+}
+
+function checkPassword() {
+    const passwordInput = document.getElementById("passwordInput").value;
+    const errorCard = document.getElementById("errorCard");
+    
+    if(passwordInput === "yourMagicWord") {
+        alert("🎉 Surprise! 🎉"); // replace with your surprise
+        errorCard.style.display = "none";
+    } else {
+        errorCard.style.display = "block";
+    }
+}
 
 function openTab(tabId) {
   document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
