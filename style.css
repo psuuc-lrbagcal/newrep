@@ -337,7 +337,7 @@ button {
   box-shadow: 0 8px 16px rgba(255, 111, 145, 0.25);
   background: #ffe0f0; 
   color: #4caf91; 
-
+}
 #tab2 #playlist li.active {
   background: #ffd6e0;
   color: #4caf91; 
