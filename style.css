@@ -18,23 +18,25 @@ body {
     text-align: center;
     width: 400px;
 }
-input {
+* {
+    box-sizing: border-box;
+}
+
+input, button {
     width: 100%;
-    padding: 10px;
+    padding: 12px; /* make padding equal */
     border-radius: 10px;
-    border: 2px solid #ffb7d5;
-    outline: none;
+    border: 2px solid #ffb7d5; /* optional for button too */
+    font-size: 16px; /* ensure text size matches */
 }
 button {
-    margin-top: 15px;
-    width: 100%;
-    padding: 10px;
     border: none;
-    border-radius: 10px;
     background: #ddffdb;
+    margin-top: 15px;
     cursor: pointer;
     font-weight: bold;
 }
+
 .error-card {
     margin-top: 10px;
     background: #ffe0e6;
