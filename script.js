@@ -44,16 +44,18 @@ function showPopupError() {
 }
 
 function checkPassword() {
-    const passwordInput = document.getElementById("passwordInput").value;
-    const errorCard = document.getElementById("errorCard");
-    
-    if(passwordInput === "yourMagicWord") {
-        alert("🎉 Surprise! 🎉"); // replace with your surprise
-        errorCard.style.display = "none";
-    } else {
-        errorCard.style.display = "block";
-    }
+  const passwordInput = document.getElementById("passwordInput").value.toLowerCase();
+  const errorCard = document.getElementById("errorCard");
+
+  if (passwordInput === "babe") {
+    document.getElementById("passwordPage").style.display = "none";
+    document.getElementById("home").style.display = "block";
+    errorCard.style.display = "none";
+  } else {
+    errorCard.style.display = "block";
+  }
 }
+
 
 function openTab(tabId) {
   document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
